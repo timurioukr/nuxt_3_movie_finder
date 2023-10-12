@@ -1,5 +1,10 @@
 # Nuxt 3 Minimal Starter
 
+.env PARAMS
+API_KEY=3868c33e
+API_BASE_URL=http://www.omdbapi.com
+PUBLIC_IMAGE_BASE_URL=http://img.omdbapi.com
+
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
