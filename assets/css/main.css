@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__nuxt {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.shadow { 
+  box-shadow: 7px 6px 44px 0px rgba(0,0,0,0.46);
+  -webkit-box-shadow: 7px 6px 44px 0px rgba(0,0,0,0.46);
+  -moz-box-shadow: 7px 6px 44px 0px rgba(0,0,0,0.46);
+}
+
+.bg-tickets {
+  background-image: url('/public/assets/images/movies-tickets.jpg')
+}
+
+.el-carousel {
+  width: 100%;
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+  text-align: center;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
