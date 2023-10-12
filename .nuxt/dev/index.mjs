@@ -50,9 +50,9 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
-    "apiKey": "",
-    "apiBaseUrl": "",
-    "imgBaseUrl": ""
+    "apiKey": "3868c33e",
+    "apiBaseUrl": "http://www.omdbapi.com",
+    "imgBaseUrl": "http://img.omdbapi.com"
   }
 };
 const ENV_PREFIX = "NITRO_";
