@@ -1,8 +1,14 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import { useMoviesStore } from '~/stores/index'
 useHead({ title: 'Find movies | MovieFinder' })
-//
+
+// Store
 const store = useMoviesStore()
+const { searchParams } = storeToRefs(store)
+
+// Methods
+const getMovies = page => store.getCurrentMovies({ ...searchParams.value, page })
 </script>
 
 <template>
@@ -23,12 +29,15 @@ const store = useMoviesStore()
         </NuxtLink>
       </div>
     </template>
-    <el-carousel v-else height="auto" arrow="always" class="rounded-lg">
-      <el-carousel-item v-for="movie in store.movies" :key="movie.imdbID" style="height: 600px">
-        <NuxtLink :to="`movies/${movie.imdbID} `">
-          <MovieCard :movie="movie" />
-        </NuxtLink>
-      </el-carousel-item>
-    </el-carousel>
+    <template v-else>
+      <el-carousel  height="auto" arrow="always" class="rounded-lg">
+        <el-carousel-item v-for="movie in store.movies" :key="movie.imdbID" style="height: 600px">
+          <NuxtLink :to="`movies/${movie.imdbID} `">
+            <MovieCard :movie="movie" />
+          </NuxtLink>
+        </el-carousel-item>
+      </el-carousel>
+      <Pagination :total="Number(store.totalMovies)" @getMovies="getMovies"/>
+    </template>
   </div>
 </template>
