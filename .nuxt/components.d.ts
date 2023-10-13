@@ -3,6 +3,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     'MovieCard': typeof import("../components/MovieCard.vue")['default']
     'NavBar': typeof import("../components/NavBar.vue")['default']
+    'Pagination': typeof import("../components/Pagination.vue")['default']
     'SearchField': typeof import("../components/SearchField.vue")['default']
     'Spinner': typeof import("../components/Spinner.vue")['default']
     'Uploader': typeof import("../components/Uploader.vue")['default']
@@ -417,6 +418,7 @@ declare module 'vue' {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyMovieCard': typeof import("../components/MovieCard.vue")['default']
     'LazyNavBar': typeof import("../components/NavBar.vue")['default']
+    'LazyPagination': typeof import("../components/Pagination.vue")['default']
     'LazySearchField': typeof import("../components/SearchField.vue")['default']
     'LazySpinner': typeof import("../components/Spinner.vue")['default']
     'LazyUploader': typeof import("../components/Uploader.vue")['default']
@@ -834,6 +836,7 @@ declare module 'vue' {
 
 export const MovieCard: typeof import("../components/MovieCard.vue")['default']
 export const NavBar: typeof import("../components/NavBar.vue")['default']
+export const Pagination: typeof import("../components/Pagination.vue")['default']
 export const SearchField: typeof import("../components/SearchField.vue")['default']
 export const Spinner: typeof import("../components/Spinner.vue")['default']
 export const Uploader: typeof import("../components/Uploader.vue")['default']
@@ -1248,6 +1251,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyMovieCard: typeof import("../components/MovieCard.vue")['default']
 export const LazyNavBar: typeof import("../components/NavBar.vue")['default']
+export const LazyPagination: typeof import("../components/Pagination.vue")['default']
 export const LazySearchField: typeof import("../components/SearchField.vue")['default']
 export const LazySpinner: typeof import("../components/Spinner.vue")['default']
 export const LazyUploader: typeof import("../components/Uploader.vue")['default']

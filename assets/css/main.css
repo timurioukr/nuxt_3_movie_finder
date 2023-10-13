@@ -8,6 +8,15 @@ html, body, #__nuxt {
   padding: 0;
 }
 
+@media (max-width: 730px) {
+  .el-dialog {
+    width: 100% !important;
+  }
+  .el-carousel__indicators {
+    display: none;
+  }
+}
+
 .pointer {
   cursor: pointer;
 }

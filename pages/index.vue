@@ -1,15 +1,18 @@
 <script setup>
 import { useMoviesStore } from '~/stores/index'
+import { storeToRefs } from 'pinia'
 useHead({ title: 'Find you movie | MovieFinder' })
 //
 const store = useMoviesStore()
 const router = useRouter()
+const { searchParams } = storeToRefs(store)
 
 // Methods
 const getMovies = params => {
   store.$reset()
   store.getCurrentMovies(params)
   router.push('/movies')
+  searchParams.value = { ...params }
 }
 </script>
 

@@ -6,17 +6,20 @@ export const useMoviesStore = defineStore('movies', {
     movies: [],
     singleMovie: {},
     isLoaded: false,
-    isOpenMovieForm: false
+    isOpenMovieForm: false,
+    totalMovies: 0,
+    searchParams: {}
   }),
   actions: {
     async getCurrentMovies(params) {
       this.isLoaded = false
       try {
         const config = useRuntimeConfig()
-        const response = await useFetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&${ params.searchMethod }=${ params.searchTitle }`)
+        const response = await useFetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&${ params.searchMethod }=${ params.searchTitle }&page=${ params.page || 1 }`)
         if (params.searchMethod === 's') {
-          const { Search } = response.data.value
+          const { Search, totalResults } = response.data.value
           this.movies = Search
+          this.totalMovies = totalResults
           this.isLoaded = true
         } else this.movies.push(response.data.value)
           this.isLoaded = true
@@ -30,7 +33,7 @@ export const useMoviesStore = defineStore('movies', {
       try {
         const config = useRuntimeConfig()
         const { data } = await useFetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&i=${ id }`)
-        this.singleMovie = data.value
+        this.singleMovie = data
         this.isLoaded = true
       } catch (error) {
         console.log(error)
@@ -39,8 +42,8 @@ export const useMoviesStore = defineStore('movies', {
     async setMyMovie(body) {
       this.isLoaded = false
       try {
-        console.log(body)
         this.isLoaded = true
+        console.log('imitate POST request', body)
       } catch (error) {
         console.log(error)
       }
