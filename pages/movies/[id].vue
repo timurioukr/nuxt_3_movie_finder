@@ -1,16 +1,14 @@
 <script setup>
 import { useMoviesStore } from '~/stores/index'
-const route = useRoute()
-const store = useMoviesStore()
 useHead({ title: 'Find movies | MovieFinder' })
 
-// Hooks
-onBeforeMount(() => loadData())
+// Router
+const route = useRoute()
 
-// Methods
-const loadData = () => {
-  store.getSingleMovie(route.params.id)
-}
+// Store
+const store = useMoviesStore()
+
+store.getSingleMovie(route.params.id)
 </script>
 
 <template>

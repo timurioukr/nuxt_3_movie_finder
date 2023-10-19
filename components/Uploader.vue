@@ -24,11 +24,7 @@ const handleClose = () => {
 }
 
 const setMyMovie = () => {
-  const formData = new FormData()
-  for (const key in body) {
-    if (body.hasOwnProperty(key)) formData.append(key, body[key])
-  }
-  store.setMyMovie(formData)
+  console.log('imitate POST request')
   handleClose()
 }
 
