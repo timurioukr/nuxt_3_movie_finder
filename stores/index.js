@@ -28,22 +28,13 @@ export const useMoviesStore = defineStore('movies', {
         this.dataLoaded = true
       }
     },
-    async getSingleMovie(id) {
+   async getSingleMovie(id) {
       this.isLoaded = false
       try {
         const config = useRuntimeConfig()
-        const { data } = await useFetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&i=${ id }`)
-        this.singleMovie = data
+        const response = await $fetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&i=${ id }`)
+        this.singleMovie = response
         this.isLoaded = true
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    async setMyMovie(body) {
-      this.isLoaded = false
-      try {
-        this.isLoaded = true
-        console.log('imitate POST request', body)
       } catch (error) {
         console.log(error)
       }
