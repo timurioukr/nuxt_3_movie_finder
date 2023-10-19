@@ -19,7 +19,7 @@ const getMovies = page => store.getCurrentMovies({ ...searchParams.value, page }
         <span class="bg-blue-600 px-3 rounded-lg" v-if="!store?.movies?.length">Empty...</span>
         <span class="bg-blue-600 px-3 rounded-lg" v-else>I found...</span>
       </h3>
-      <Spinner v-if="!!store?.movies?.length" />
+      <Spinner v-if="!store.isLoaded" />
     </div>
 
     <template v-if="store?.movies?.length === 1">
