@@ -32,8 +32,8 @@ export const useMoviesStore = defineStore('movies', {
       this.isLoaded = false
       try {
         const config = useRuntimeConfig()
-        const response = await $fetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&i=${ id }`)
-        this.singleMovie = response
+        const { data } = await useAsyncData(() => $fetch(`${ config.public.apiBaseUrl }/?apikey=${ config.public.apiKey }&i=${ id }`))
+        this.singleMovie = data.value
         this.isLoaded = true
       } catch (error) {
         console.log(error)
