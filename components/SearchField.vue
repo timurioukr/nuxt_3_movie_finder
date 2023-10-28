@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 // Data
 const search = ref('')
 const searchMethod = ref('s')

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useMoviesStore } from '~/stores/index'
 useHead({ title: 'Find movies | MovieFinder' })
@@ -8,7 +8,7 @@ const store = useMoviesStore()
 const { searchParams } = storeToRefs(store)
 
 // Methods
-const getMovies = page => store.getCurrentMovies({ ...searchParams.value, page })
+const getMovies = (page: number) => store.getCurrentMovies({ ...searchParams.value, page })
 </script>
 
 <template>
